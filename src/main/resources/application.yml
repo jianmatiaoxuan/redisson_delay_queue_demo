@@ -1,0 +1,34 @@
+# Tomcat
+server:
+  port: 8080
+  servlet:
+    # 应用上下文路径
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # 连接数满后的排队数，默认为100
+    accept-count: 1000
+    threads:
+      # tomcat最大线程数，默认为200
+      max: 20
+      # Tomcat启动初始化的线程数，默认值10
+      min-spare: 10
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: redisson-demo
+  #redis 配置
+  redis:
+    database: 0
+    host: 192.168.0.41
+    lettuce:
+      pool:
+        max-active: 8   #最大连接数据库连接数,设 -1 为没有限制
+        max-idle: 8     #最大等待连接中的数量,设 0 为没有限制
+        max-wait: -1ms  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        min-idle: 0     #最小等待连接中的数量,设 0 为没有限制
+      shutdown-timeout: 100ms
+    password: 123456
+    port: 26379
